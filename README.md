@@ -1,10 +1,8 @@
 # auto-green
 
-[![Build Status](https://github.com/justjavac/auto-green/workflows/ci/badge.svg?branch=master)](https://github.com/justjavac/auto-green/actions)
-
 自动保持 GitHub 提交状态常绿。
 
-> a commit a day keeps your girlfriend away.
+> a commit a day keeps your bad luck away.
 
 ## 原理
 
@@ -49,9 +47,6 @@
 
 
 
-![公众号：AI悦创.jpg](README.assets/公众号：AI悦创.jpg)
-
-
 ```
 name: ci
 
@@ -60,7 +55,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: "* */78 * * *"
+    - cron: "* * * * *"
 
 jobs:
   autogreen:
@@ -71,10 +66,10 @@ jobs:
 
       - name: Auto green
         run: |
-          git config --local user.email "cleland1432803776@icloud.com"
-          git config --local user.name "AndersonHJB"
+          git config --local user.email "Email"
+          git config --local user.name "username"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
-          git commit --allow-empty -m "a commit a day keeps your girlfriend away"
+          git commit --allow-empty -m "a commit a day keeps your bad luck away"
           git push
 ```
